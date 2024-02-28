@@ -73,11 +73,11 @@ function connect() {
                 }
                 break;
             case "user_join":
-                chatLog.value += data.user + " joined the room.\n";
+                chatLog.value += data.user + " 님이 방에 들어왔습니다.\n";
                 onlineUsersSelectorAdd(data.user);
                 break;
             case "user_leave":
-                chatLog.value += data.user + " left the room.\n";
+                chatLog.value += data.user + " 님이 방을 나갔습니다.\n";
                 onlineUsersSelectorRemove(data.user);
                 break;
             case "private_message":

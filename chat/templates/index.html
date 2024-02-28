@@ -1,31 +1,52 @@
+{% extends 'owaste/base.html' %}
+{% block content %}
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>OWASTE CHAT</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+        {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> {% endcomment %}
+        {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script> {% endcomment %}
         <style>
             #roomSelect {
-                height: 300px;
+                height: 150px;
+                margin-bottom: 55%;
+            }
+            .b_tit {
+                font-family: 'Nunito', 'NanumBarunpen', sans-serif;
+                font-weight: 700;
+                font-size: 35px;
+                letter-spacing: -1px;
+                text-align: center;
+                line-height: 1.2;
+                display: inline-block;
+                color:#3498DB
+            }
+            .b_tit_small {
+                font-family: 'Nunito', 'NanumBarunpen', sans-serif;
+                font-weight: 700;
+                font-size: 20px;
+                letter-spacing: -1px;
+                text-align: center;
+                line-height: 1.2;
+                display: inline-block;
+                color:#9E9E9E
             }
         </style>
     </head>
     <body>
-        <div class="container mt-3 p-5">
-            <h2>OWASTE CHAT</h2><br>
+        <div class="container mt-5 p-5">
+            <h2 class="b_tit" style="margin-top: 15%;">OWASTE 나눔 채팅방</h2><br>
             <div class="row">
                 <div class="col-12 col-md-8">
                     <div class="mb-2">
-                        <label for="roomInput">방 이름 입력:</label><br>
-                        <input type="text" class="form-control" id="roomInput" placeholder="Room name">
-                        <small id="roomInputHelp" class="form-text text-muted">If the room doesn't exist yet, it will be created for you.</small>
+                        <input type="text" class="form-control" id="roomInput" placeholder="채팅방 이름" style="margin-top: 2%">
+                        <small id="roomInputHelp" class="form-text text-muted">　찾는 채팅방이 없다면 직접 만들어보세요!</small>
                     </div>
-                    <button type="button" id="roomConnect" class="btn btn-success">Connect</button>
+                    <button type="button" id="roomConnect" class="btn btn-info" style="margin-top: 1%; float:right;">연결</button>
                 </div>
-                <div class="col-12 col-md-4">
-                    <label for="roomSelect">Active rooms</label>
+                <div class="col-12 col-md-4 b_tit_small">
+                    <label for="roomSelect"  class="b_tit_small">Active rooms</label>
                     <select multiple class="form-control" id="roomSelect">
                         {% for room in rooms %}
                             <option>{{ room }}</option>
@@ -37,3 +58,4 @@
         <script src="{% static 'index.js' %}"></script>
     </body>
 </html>
+{% endblock content %}

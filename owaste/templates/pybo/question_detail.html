@@ -2286,22 +2286,24 @@
     .b_tit_comment {
       font-family: 'Nunito', 'NanumBarunpen', sans-serif;
       font-weight: 700;
+      font-size: 25px;
+      letter-spacing: -1px;
+      text-align: center;
+      line-height: 1.2;
+      display: inline-block;
+      color:#3498DB;
+    }
+    .b_tit_content {
+      font-family: 'Nunito', 'NanumBarunpen', sans-serif;
+      font-weight: 700;
       font-size: 20px;
       letter-spacing: -1px;
       text-align: center;
       line-height: 1.2;
       display: inline-block;
-      color:#3498DB
-    }
-    .b_tit_content {
-      font-family: 'Nunito', 'NanumBarunpen', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: -1px;
-      text-align: center;
-      line-height: 1.2;
-      display: inline-block;
-      color:#9E9E9E
+      color:#9E9E9E;
+      margin-top:3%;
+
     }
     .b_tit_small {
       font-family: 'Nunito', 'NanumBarunpen', sans-serif;
@@ -2310,7 +2312,7 @@
       letter-spacing: -1px;
       align:center;
       line-height: 1.2;
-      color:#9E9E9E
+      color:#9E9E9E;
     }
 
     .b_tit_map {
@@ -16633,11 +16635,17 @@
     <div style = "display: flex; justify-content: center; align-items: center;">
         <div style="position: relative;">
           <div class="b_tit" style="position: absolute; left: 50%; transform: translate(-50%, -50%);">{{ question.subject }}</div><br><br><br>
-          <div class="b_tit_small" style="position: absolute; left: 50%; transform: translate(-50%, -50%);">상태 : <span style="color:black;">{{ question.status }}</span> 지역 : <span style="color:black;">{{ question.region }}</span></div><br><br><br>
+          <div class="b_tit_small" style="margin-top:3%; position: absolute; left: 50%; transform: translate(-50%, -50%);">상태 : <span style="color:black;">{{ question.status }}</span> 지역 : <span style="color:black;">{{ question.region }}</span></div><br><br><br>
           <img src="{{ question.imgfile.url }}" style="width:100%; height:100%;" /><br><br>
-            <div class="b_tit_small" style="text-align:center">작성자 : {{ question.author }}</div>
-            <div class="b_tit_small" style="text-align:center">작성일 : {{ question.create_date |date:"Y년 m월 d일"  }}</div><br>
-            <div class="b_tit_small" style="border:1px solid #9E9E9E; border-radius:5px; background-color:lightgray; padding:10px; text-align:center;">{{ question.content }}</div>
+          <div class="b_tit_small" style="display: flex; align-items: center; justify-content: center;">
+            <div style="font-size: 25px; margin-right: 2%; color:black;">작성자 :</div>
+            <div>{{ question.author }}</div>
+          </div>
+          <div class="b_tit_small" style="display: flex; align-items: center; justify-content: center;">
+            <div style="font-size: 25px; margin: 2%; color:black;">작성일 :</div>
+            <div>{{ question.create_date |date:"Y년 m월 d일"  }}</div>
+          </div>
+            <div class="b_tit_small" style="border:1px solid #9E9E9E; border-radius:5px; background-color:white; padding:10%; text-align:center;">{{ question.content }}</div>
             <div>
             <br><br>
           <div class="col-1">
@@ -16648,11 +16656,11 @@
             <a
               href="#"
               data-uri="{% url 'pybo:vote_question' question.id %}"
-              class="recommend btn btn-sm btn-secondary btn-block my-1"
+              class="recommend btn btn-secondary btn-block my-1"
               >추천</a>
           </div>
           <div align=center>
-          <a id="btn" href="{% url 'chat:chat-index' %}"><button class="btn btn-primary" type="button">채팅하기</button></a>
+          <a id="btn" href="{% url 'chat:chat-index' %}"><button style="width:100%" class="btn btn-primary" type="button">채팅하기</button></a>
           </div>
         </div>
         {% if request.user == question.author %}
@@ -16686,14 +16694,14 @@
                 
                 <strong class="b_tit_comment">{{ answer.author.username }}</strong><br>
                 <div class="b_tit_content">{{ answer.content }}</div>
-                <div style="font-size:10px">{{ answer.create_date|date:"Y년 m월 d일" }}</div>
+                <div style="font-size:12px; margin-top:5%">{{ answer.create_date|date:"Y년 m월 d일" }}</div>
                 {% if request.user == answer.author %}
                 <div>
-                  <button style=" font-size:11px; padding:5px;"><a
+                  <button style=" font-size:13px; padding:5px; margin-top:5%"><a
                     href="{% url 'pybo:answer_modify' answer.id  %}"
                     >수정하기</a
                   ></button>
-                  <button style=" font-size:11px; padding:5px;"><a
+                  <button style=" font-size:13px; padding:5px; margin:5% 0%"><a
                     href="#"
                     class="delete"
                     data-uri="{% url 'pybo:answer_delete' answer.id  %}"
@@ -16730,10 +16738,10 @@
         disabled
         {% endif %}
         class="form-control"
-        rows="10"
+        rows="5"
       ></textarea>
     </div>
-    <input type="submit" value="댓글 등록" class="btn btn-primary" />
+    <input type="submit" value="댓글 등록" class="btn btn-primary" style="float:right; margin-bottom:2%" />
   </form>
 </div>
 {% endblock %} 
