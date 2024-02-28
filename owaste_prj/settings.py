@@ -31,17 +31,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'owaste',
+    'django_bootstrap5',
+    'common',
+    'pybo',
+    'chat',
+    'channels',
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'owaste',
-    'django_bootstrap5',
-    'common',
-    'pybo',
-    'chat',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +148,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # LOGIN/LOGOUT 후 이동하는 URL
 LOGIN_REDIRECT_URL = '/owaste/index'
 LOGOUT_REDIRECT_URL = '/owaste/index'
+
+ASGI_APPLICATION = "owaste_prj.asgi.application"
+WSGI_APPLICATION = "owaste_prj.wsgi.application"
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
