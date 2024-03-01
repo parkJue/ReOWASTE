@@ -16667,7 +16667,7 @@
 
       <!-- 테이블 : 검색 -->
 
-        <div id="plz" class="py-5 container" style="float:left; display:inline;">
+        <div id="plz" class="py-5 container" style="float:center; display:inline;">
             <form method="post">
                 {% csrf_token %}
                 {% include "form_errors.html" %}
@@ -16685,10 +16685,10 @@
                 <br>
             </form>
         </div>
-            <div style="text-align:left; display:inline;">
+            {% comment %} <div style="text-align:left; display:inline;">
                 안뇽
                 방가
-            </div>
+            </div> {% endcomment %}
         
         
 {% endblock %}

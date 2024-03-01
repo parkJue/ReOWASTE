@@ -16650,10 +16650,10 @@
 <table style="width:40%; height: 100px; margin: auto; text-align: center;">
     <tr>
       <td align=left style="width:60%;">
+        <div style="text-align:center; background-color:#767171; border-radius:5px; color:white;">매장 리뷰</div><p>
         <div class="card w-100">
             <div class="card-body">
                 {% if myreview_dict %}
-                <div style="text-align:center; background-color:#767171; border-radius:5px; color:white;">매장 리뷰</div>
                     {% for shop, review_list in myreview_dict.items %}
                     <div>
                         <a href="{% url 'shop_detail' shop.id %}" style="text-decoration:none">
@@ -16668,11 +16668,11 @@
                     {% endfor %}
                     </a>
                 {% else %}
-                <span style="color:#9E9E9E; padding-left:8px;">매장에 아무 댓글도 작성되지 않았습니다. 새로운 댓글을 작성해보세요^^!</span>
+                <span style="color:#9E9E9E; padding-left:8px; margin-top:3%">매장에 아무 리뷰도 작성하지 않았습니다.</span>
                 {% endif %}
             </div>
         </div>
-        <div style="text-align:center; background-color:#767171; border-radius:5px; color:white;">내가 한 나눔</div><p>
+        <div style="text-align:center; background-color:#767171; border-radius:5px; color:white;">나눔</div><p>
         <div class="card w-100">
             <div class="card-body">
                 {% if myquestion_list %}
@@ -16683,12 +16683,12 @@
                     </a>
                     {% endfor %}
                 {% else %}
-                <span style="color:#9E9E9E; padding-left:8px;">내가 쓴 글이 없습니다. 새 글을 작성해보세요 ^^!</span>
+                <span style="color:#9E9E9E; padding-left:8px; margin-top:3%">작성한 댓글이 없습니다.</span>
                 {% endif %}
             </div>
         </div>
         <p>
-        <div style="text-align:center; background-color:#767171; border-radius:5px; color:white;">내가 쓴 댓글</div>
+        <div style="text-align:center; background-color:#767171; border-radius:5px; color:white;">댓글</div>
         <p>
         <div class="card w-100">
             <div class="card-body">
@@ -16704,12 +16704,12 @@
                     {% endfor %}
                     </a>
                 {% else %}
-                <span style="color:#9E9E9E; padding-left:8px;">나눔게시판에 아무 댓글도 작성되지 않았습니다. 새로운 댓글을 작성해보세요^^!</span>
+                <span style="color:#9E9E9E; padding-left:8px;">나눔게시판에 아무 댓글도 작성하지 않았습니다.</span>
                 {% endif %}
             </div>
         </div>
         <p>
-        <div style="text-align:center; background-color:#767171; border-radius:5px; color:white;">내가 한 추천</div>
+        <div style="text-align:center; background-color:#767171; border-radius:5px; color:white;">추천한 글</div>
         <p>
         <div class="card w-100">
             <div class="card-body">
@@ -16719,7 +16719,7 @@
                       <span style="color:#9E9E9E; padding-left:8px;">{{mylike}}</span>
                 {% endfor %}
             {% else %}
-            <span style="color:#9E9E9E; padding-left:8px;">내가 추천한 글이 없습니다. 추천해보세요^^!</span>
+            <span style="color:#9E9E9E; padding-left:8px;">추천한 글이 없습니다.</span>
             {% endif %}
         </a>
 </td>
